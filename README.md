@@ -1,3 +1,196 @@
+# JOBSHEET 1
+
+## Introduction
+
+Repositori ini menjelaskan tentang Object-Oriented Programming (OOP) dalam php, yang didalamnya terdapat **Atribut & Method**, **Kelas & Objek**. Konsep-konsep ini penting didalam (OOP).
+
+## Contents
+
+- [Atribut & Method](##Atribut&Method)
+- [Kelas & Objek](#Kelas&Objek)
+- [Implementasi OOP](#ImplementasiOOP)
+
+## Atribut & Method
+
+Atribut adalah variabel yang didefinisikan dalam sebuah kelas dan digunakan untuk menyimpan data atau informasi tentang objek. Dalam konteks OOP, atribut juga dikenal sebagai properties atau fields.
+Method adalah blok kode yang terkait dengan class dan digunakan untuk mendefinisikan aksi yang dapat dilakukan oleh object.
+
+### Examples
+```php
+<?php
+
+// Mendefinisikan kelas Buku dengan atribut judul dan penulis
+class Buku{
+    public $judul;
+    public $penulis;
+
+    // Konstruktor untuk menginisialisasi objek Buku dengan judul dan penulis
+    public function __construct($judul, $penulis)
+    {
+        $this->judul= $judul;
+        $this->penulis= $penulis;
+    }
+
+    // Metode untuk menampilkan informasi tentang buku
+    public function tampilkanInfo(){
+        return "Buku: $this->judul | $this->penulis";
+    }
+}
+
+// Membuat objek Buku baru dengan judul "Pemograman PHP" dan penulis "Andi Prasetyo"
+$buku1 = new Buku("Pemograman PHP", "Andi Prasetyo");
+
+// Menampilkan informasi buku dengan memanggil metode tampilkanInfo()
+echo $buku1->tampilkanInfo();
+```
+
+### results
+![image](https://github.com/user-attachments/assets/4f0ed7bd-6c84-4f76-84a4-03da8451ef25)
+
+## Kelas & Objek
+
+Kelas adalah blueprint atau template untuk membuat objek.
+Objek adalah instansiasi konkret dari sebuah kelas.
+
+### Examples
+```php
+<?php
+
+// Mendefinisikan kelas Mobil dengan atribut merk dan warna
+class Mobil{
+
+    public $merk;
+    public $warna;
+
+
+     // Konstruktor untuk menginisialisasi objek Mobil dengan merk dan warna
+    public function __construct($merk, $warna){
+        $this->merk = $merk;
+        $this->warna = $warna;
+    }
+
+    // Metode untuk menampilkan deskripsi mobil
+    public function deskripsi(){
+        echo "Mobil ini merknya $this->merk dan warnanya $this->warna";
+    }
+}
+
+// Membuat objek Mobil baru dengan merk "Toyota" dan warna "Hitam"
+$mobil1 = new Mobil("Toyota", "Hitam");
+
+// Memanggil metode deskripsi() pada objek $mobil1 untuk menampilkan informasi mobil
+echo $mobil1->deskripsi();
+```
+
+### Results
+![image](https://github.com/user-attachments/assets/ccb5b067-506b-4091-a2da-4e7bd200f31e)
+
+
+## Implementasi OOP
+
+Contoh Pengimplementasian Konsep dasar OOP dalam pemrograman PHP dengan membuat class, objek, serta
+menerapkan prinsip Encapsulation, Inheritance, Polymorphism, dan Abstraction.
+
+### Example
+```php
+<?php
+
+// Mendefinisikan kelas Mahasiswa dengan atribut nama, nim, dan jurusan
+
+class Mahasiswa {
+    public $nama;
+    public $nim;
+    public $jurusan;
+
+    // Konstruktor untuk menginisialisasi objek Mahasiswa dengan nama, nim, dan jurusan
+    public function __construct($nama, $nim, $jurusan) {
+        $this->nama = $nama;
+        $this->nim = $nim;
+        $this->jurusan = $jurusan;
+    }
+
+    // Metode untuk menampilkan data mahasiswa
+    public function tampilkandata() {
+        echo "Nama : " . $this->nama . "<br>";
+        echo "NIM : " . $this->nim . "<br>";
+        echo "Jurusan : " . $this->jurusan . "<br>";
+    }
+
+    // Metode untuk mengupdate jurusan mahasiswa
+    public function Updatejurusan($jurusan) {
+        $this->jurusan = $jurusan;
+    }
+
+    // Metode setter untuk mengubah nilai NIM mahasiswa
+    public function setNim($nim) {
+        $this->nim = $nim;
+    }
+
+    // Metode getter untuk mendapatkan nilai NIM mahasiswa
+    public function getNim() {
+        return $this->nim;
+    }
+
+    // Metode setter untuk mengubah nilai jurusan mahasiswa
+    public function setJurusan($jurusan) {
+        $this->jurusan = $jurusan;
+    }
+
+    // Metode getter untuk mendapatkan nilai jurusan mahasiswa
+    public function getJurusan() {  
+        return $this->jurusan;
+    }
+}
+
+// Mendefinisikan kelas Dosen dengan atribut nama, nip, dan matakuliah
+class Dosen {
+    public $nama;
+    public $nip;
+    public $matakuliah;
+
+    // Konstruktor untuk menginisialisasi objek Dosen dengan nama, nip, dan mata kuliah
+    public function __construct($nama, $nip, $matakuliah) {
+        $this->nama = $nama;
+        $this->nip = $nip;
+        $this->matakuliah = $matakuliah;
+    }
+
+    // Metode untuk menampilkan data dosen
+    public function tampilkanDosen() {
+        echo "Nama : " . $this->nama . "<br>";
+        echo "NIP : " . $this->nip . "<br>";
+        echo "Matakuliah : " . $this->matakuliah . "<br>";
+    }
+
+}
+
+// Membuat objek Dosen baru dengan nama "Joko", nip "123", dan mata kuliah "Pemrograman Web"
+$dosen1 = new Dosen("Joko", "123", "Pemrograman Web");
+// Memanggil metode tampilkanDosen() pada objek $dosen1 untuk menampilkan informasi dosen
+$dosen1->tampilkanDosen() ;
+
+echo "<br>";
+
+// Membuat objek Mahasiswa baru dengan nama "Dedi", nim "123", dan jurusan "Teknik Informatika"
+$mahasiswa = new Mahasiswa("Dedi", "123", "Teknik Informatika");
+$mahasiswa->tampilkandata();
+
+// Mengubah NIM mahasiswa dengan nilai baru "456" menggunakan metode setter
+$mahasiswa->setNim("456");
+// Menampilkan NIM mahasiswa yang telah diubah menggunakan metode getter
+echo "Update NIM :" .$mahasiswa->getNim()."<br>";
+
+// Mengubah jurusan mahasiswa dengan nilai baru "Teknik Mesin" menggunakan metode setter
+$mahasiswa->setJurusan("Teknik Mesin");
+// Menampilkan jurusan mahasiswa yang telah diubah menggunakan metode getter
+echo "Update Jurusan :" .$mahasiswa->getJurusan()."<br>";
+
+?>
+```
+
+### Results
+![image](https://github.com/user-attachments/assets/0604b176-ae16-4abb-85e3-7a55a9e55732)
+
 # JOBSHEET 2
 
 ## Introduction
