@@ -1,26 +1,34 @@
 <?php
 
+// Mendefinisikan kelas dasar 'person' yang akan menjadi blueprint untuk PERSON
 class person{
 
+    // Menginisialisasi nama objek dengan nilai yang diberikan
     public $name;
     
+    // Konstruktor: Fungsi yang otomatis dijalankan saat objek kelas ini dibuat
     public function __construct($name){
         $this->name = $name;
     }   
 
+    // Metode untuk mendapatkan nama
     public function getName(){
         return $this->name;
     }
 
+    // Metode untuk mengubah nama
     public function setName($name){ 
         $this->name = $name;
     }
 } 
 
+// Kelas 'Student' mewarisi semua properti dan metode dari kelas 'person'
 class Student extends person{
 
+    // Properti pribadi untuk menyimpan ID mahasiswa
     private $studentID;
 
+    // Memanggil konstruktor kelas induk untuk menginisialisasi nama
     public function __construct($name, $studentID){
         parent::__construct($name);
         $this->studentID = $studentID;
@@ -30,12 +38,14 @@ class Student extends person{
         return $this->studentID;
     }
 
+    // Meng-override metode getName() untuk memberikan format output yang berbeda
     public function getName() {
         return "Student Name: " . $this->name;
     }
 
 }
 
+// Kelas 'Teacher' mewarisi semua properti dan metode dari kelas 'person'
 class Teacher extends person{
 
     public $teacherID;
@@ -54,6 +64,7 @@ class Teacher extends person{
     }
 }
 
+// Membuat objek Student
 $student = new Student("Alice", "S12345");
 echo $student->getName();  // Output: Student Name: Alice
 echo "<br>";
